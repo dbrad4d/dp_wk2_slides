@@ -1,20 +1,29 @@
 ---
 title: "leaflet"
-author: "D. Bradford"
-date: "8/26/2019"
+author: "D. Bradfdate: "8/26/2019"
 output: html_document
 ---
 
-
 ## Your First Map
 
-```{r, echo=FALSE}
+```{r, eval=FALSE}
 library(leaflet)
 my_map <- leaflet() %>%
-  addTiles()
+  addTiles() %>%
+  addMarkers(lat=39.2980803, lng=-76.5898801,
+            popup="Jeff Leek's Office")
 my_map
 ```
 
-## Adding Markers
+### Adding many markers
 
+```{r}
+set.seed(2019-08-26)
+df <- data.frame(lat = runif(20, min = 39.2, max = 39.3),
+                 lng = runif(20, min = -76.6, max = -76.5))
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers()
+```
 
