@@ -1,9 +1,12 @@
 ---
 title: "Week 2 Assignment - Leaflet"
 author: "D. Bradford"
-date: "8/26/2019"
+date: "August 26, 2019"
 output: html_document
 ---
+
+## Places I've been.
+#### Hover over marker for description.
 
 ```{r, echo=FALSE}
 library(leaflet)
@@ -12,7 +15,9 @@ library(htmltools)
 
 df <- read.csv("citiesivevisited.csv", na.strings = c("NA", "#DIV/0!", ""))
 
-leaflet(df) %>%
+my_map = leaflet(df) %>%
   addTiles() %>%
   addMarkers(~lng, ~lat, label = ~htmlEscape(ï..popup))
+
+my_map
 ```
